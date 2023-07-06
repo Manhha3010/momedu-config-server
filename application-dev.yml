@@ -1,3 +1,4 @@
+profile: dev
 spring:
   quartz:
     scheduler-name: hoang-scheduler
@@ -79,3 +80,6 @@ notification:
         group-id: -942485210
 server:
   port: 9292
+
+duymanh:
+  sdt: 0964888301
