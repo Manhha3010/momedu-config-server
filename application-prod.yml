@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://103.101.162.135:3306/mom_edu/prod
+    username: momedu/prod
+    password: Bbu!@3/prod
+    driver-class-name: org.mariadb.jdbc.Driver/prod
+    hikari:
+      connection-timeout: 10000
+  redis:
+    database: 0
+    port: 6379
+    host: 103.101.162.135/prod
+    password: bBu_passw0rd/prod
+sms:
+  branchname:
+    baseurl: https://api.brandsms.vn/api/prod
+    branch: BABIUNI.VN/prod
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c24iOiJleHNvZnQiLCJzaWQiOiI5NjNlM2E3OS0zNTAzLTQ1YWItODAzNS00ZDA1YWZhNDM3YjIiLCJvYnQiOiIiLCJvYmoiOiIiLCJuYmYiOjE2NDcyMjI3NzQsImV4cCI6MTY0NzIyNjM3NCwiaWF0IjoxNjQ3MjIyNzc0fQ.wuof02SxJX4q_zZeEQLQV7IxtfUkOJs83nH1Dce51Bg/prod
+jwt:
+  iss: Momedu-app
+  time-to-live: 365
+  secret-key: yakNF0lVMbT8lZlywv0OaJqEjKS0XLLk/xQvi7TYn6c=
+momedu:
+  rest-template:
+    read-timeout: 180
+    connection-timeout: 30
+  firebase:
+    path: app-thai-giao-firebase-adminsdk-6x1ve-3f873b1873.json
+    database:
+      url: https://app-thai-giao-default-rtdb.asia-southeast1.firebasedatabase.app/
+    notification:
+      image: https://momeduapi.exsoft.vn/api/static/images/icon-app.png
+  attachment:
+    link: https://momeduapi.exsoft.vn/api/attachments/
+    upload:
+      path: /home/backend/momedu/uploadfile
+    mime-types:
+      video: mp4,mpeg,mov,avi
+      audio: mp3
+    m3u8:
+      path: /usr/share/nginx/html
+      ffmpegpath: /usr/bin/ffmpeg
+      link: https://mediadev.babiuni.com
+
