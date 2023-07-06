@@ -1,4 +1,4 @@
-profile: dev
+profile: development
 spring:
   quartz:
     scheduler-name: hoang-scheduler
