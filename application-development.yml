@@ -1,0 +1,85 @@
+profile: development
+spring:
+  quartz:
+    scheduler-name: hoang-scheduler
+    startup-delay: 6s
+    auto-startup: false
+  datasource:
+    url: jdbc:mariadb://103.101.162.135:3306/mom_edu
+    username: momedu
+    password: Bbu!@3
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      connection-timeout: 10000
+  redis:
+    database: 0
+    port: 6379
+    host: 103.101.162.135
+    password: bBu_passw0rd
+sms:
+  branchname:
+    baseurl: https://api.mobilebranding.vn/api
+    branch: Momedu
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c24iOiJleHNvZnQiLCJzaWQiOiI5NjNlM2E3OS0zNTAzLTQ1YWItODAzNS00ZDA1YWZhNDM3YjIiLCJvYnQiOiIiLCJvYmoiOiIiLCJuYmYiOjE2NzU5MDY2MDAsImV4cCI6MTY3NTkxMDIwMCwiaWF0IjoxNjc1OTA2NjAwfQ.GUMbQgm0H8gxyi5hNBpNzPsClY1lOeQY532os3zV07Y
+jwt:
+  iss: Momedu-app
+  time-to-live: 365
+  secret-key: yakNF0lVMbT8lZlywv0OaJqEjKS0XLLk/xQvi7TYn6c=
+momedu:
+  rest-template:
+    read-timeout: 180
+    connection-timeout: 30
+  firebase:
+    path: app-thai-giao-firebase-adminsdk-6x1ve-3f873b1873.json
+    database:
+      url: https://app-thai-giao-default-rtdb.asia-southeast1.firebasedatabase.app/
+    notification:
+      image: https://momeduapi.exsoft.vn/api/static/images/icon-app.png
+  attachment:
+    link: https://momeduapi.exsoft.vn/api/attachments/
+    upload:
+      path: /home/backend/momedu/uploadfile
+    mime-types:
+      video: mp4,mpeg,mov,avi
+      audio: mp3
+    m3u8:
+      path: /usr/share/nginx/html
+      ffmpegpath: /usr/bin/ffmpeg
+      link: https://mediadev.babiuni.com
+  reward-point: 100000
+logging:
+  file:
+    name: ./logs/mom-edu
+  logback:
+    rollingpolicy:
+      max-history: 100
+      file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}.%i.log
+
+payment:
+  momo:
+    partnerCode: MOMOA9ED20220530
+    uri: https://test-payment.momo.vn/v2/gateway/api/create
+    redirectUrl: http://dev.momedu.vn/order/success
+    ipnUrl: https://momeduapi.exsoft.vn/api/payment/result
+    accessKey: ubadecJiPrAIqhDq
+    secretKey: 1Yw5sGmaZ2IuCQDtFetNDiyQhqo6BHts
+    requestType: captureWallet
+    storeName: CÔNG TY CỔ PHẦN CÔNG NGHỆ PHẦN MỀM EXSOFT
+
+notification:
+  telegram:
+    notification:
+      template-uri: https://api.telegram.org/bot%s/sendMessage
+      order:
+        token: 5965358146:AAFiyM8U2j63nQYAAg9gCe6MR20u33Zzg7k
+        # For dev ENV
+        group-id: -942485210
+      hotlead:
+        token: 5965358146:AAFiyM8U2j63nQYAAg9gCe6MR20u33Zzg7k
+        # For dev ENV
+        group-id: -942485210
+server:
+  port: 9292
+
+duymanh:
+  sdt: 0964888301
