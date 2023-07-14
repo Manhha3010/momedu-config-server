@@ -1,9 +1,4 @@
-profile: development
 spring:
-  quartz:
-    scheduler-name: hoang-scheduler
-    startup-delay: 6s
-    auto-startup: false
   datasource:
     url: jdbc:mariadb://103.101.162.135:3306/mom_edu
     username: momedu
@@ -22,10 +17,12 @@ sms:
     branch: Momedu
     token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c24iOiJleHNvZnQiLCJzaWQiOiI5NjNlM2E3OS0zNTAzLTQ1YWItODAzNS00ZDA1YWZhNDM3YjIiLCJvYnQiOiIiLCJvYmoiOiIiLCJuYmYiOjE2NzU5MDY2MDAsImV4cCI6MTY3NTkxMDIwMCwiaWF0IjoxNjc1OTA2NjAwfQ.GUMbQgm0H8gxyi5hNBpNzPsClY1lOeQY532os3zV07Y
 jwt:
-  iss: Momedu-app
-  time-to-live: 365
+  iss: Momedu
+  time-to-live: 2
   secret-key: yakNF0lVMbT8lZlywv0OaJqEjKS0XLLk/xQvi7TYn6c=
 momedu:
+  account:
+    management: admin
   rest-template:
     read-timeout: 180
     connection-timeout: 30
@@ -36,7 +33,7 @@ momedu:
     notification:
       image: https://momeduapi.exsoft.vn/api/static/images/icon-app.png
   attachment:
-    link: https://momeduapi.exsoft.vn/api/attachments/
+    link: https://admmomeduapi.exsoft.vn/api/attachments/
     upload:
       path: /home/backend/momedu/uploadfile
     mime-types:
@@ -46,40 +43,24 @@ momedu:
       path: /usr/share/nginx/html
       ffmpegpath: /usr/bin/ffmpeg
       link: https://mediadev.babiuni.com
-  reward-point: 100000
+
 logging:
   file:
-    name: ./logs/mom-edu
+    name: ./logs/mom-edu-admin
   logback:
     rollingpolicy:
       max-history: 100
       file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}.%i.log
 
-payment:
-  momo:
-    partnerCode: MOMOA9ED20220530
-    uri: https://test-payment.momo.vn/v2/gateway/api/create
-    redirectUrl: http://dev.momedu.vn/order/success
-    ipnUrl: https://momeduapi.exsoft.vn/api/payment/result
-    accessKey: ubadecJiPrAIqhDq
-    secretKey: 1Yw5sGmaZ2IuCQDtFetNDiyQhqo6BHts
-    requestType: captureWallet
-    storeName: CÔNG TY CỔ PHẦN CÔNG NGHỆ PHẦN MỀM EXSOFT
+text-to-speech:
+  uri: https://api.fpt.ai/hmi/tts/v5
+  api-key: k0jtyBFLQOQEZU2BO1LVUTpLZReDDXEb
+  voice: banmai
+  speed: 0
 
-notification:
-  telegram:
-    notification:
-      template-uri: https://api.telegram.org/bot%s/sendMessage
-      order:
-        token: 5965358146:AAFiyM8U2j63nQYAAg9gCe6MR20u33Zzg7k
-        # For dev ENV
-        group-id: -942485210
-      hotlead:
-        token: 5965358146:AAFiyM8U2j63nQYAAg9gCe6MR20u33Zzg7k
-        # For dev ENV
-        group-id: -942485210
+callback:
+  url: https://admmomeduapi.exsoft.vn/api/tts/callback
+
+
 server:
   port: 9292
-
-duymanh:
-  sdt: 0964888301
